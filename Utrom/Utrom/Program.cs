@@ -12,22 +12,19 @@ namespace Utrom
         static void Main(string[] args)
         {
             Console.Write("Input = ");
-            //string inpPath = Console.ReadLine();
+            string inpPath = Console.ReadLine();
             Console.Write("Output = ");
-            //string outPath = Console.ReadLine();
-            //Get(inpPath, outPath);
-            Get("1", "2");
+            string outPath = Console.ReadLine();
+            JustDoIt(inpPath, outPath);
 
             Console.ReadKey();
         }
-
-        static void Get(string startPath, string copyPath)
+        static void JustDoIt(string startPath, string copyPath)
         {
             DirectoryInfo mainDirectory = new DirectoryInfo(startPath);
             ProcessDirectories(mainDirectory.GetDirectories(), copyPath);
             ProcessFiles(mainDirectory.GetFiles(), copyPath);
         }
-
         static void ProcessDirectories(DirectoryInfo[] directories, string copyPath)
         {
             string prevDirectoryName = "";
@@ -57,7 +54,6 @@ namespace Utrom
             locaDirectories = locaDirectories.OrderByDescending(c => c.Weight).ThenBy(c => c.UUID).ToList();
             CopyLocalDirectories(locaDirectories, copyPath);
         }
-
         static void ProcessFiles(FileInfo[] files, string copyPath)
         {
             string prevFileName = "";
@@ -90,7 +86,6 @@ namespace Utrom
             locaFiles = locaFiles.OrderByDescending(c => c.Weight).ThenBy(c => c.UUID).ToList();
             CopyLocalFiles(locaFiles, copyPath);
         }
-
         static void CopyLocalFiles(List<LocaFileInfo> locaFiles, string path)
         {
             int i = 0;
@@ -113,7 +108,6 @@ namespace Utrom
                 i++;
             }
         }
-
         static int GetWeight(string path)
         {
             using (StreamReader stream = new StreamReader(path))
