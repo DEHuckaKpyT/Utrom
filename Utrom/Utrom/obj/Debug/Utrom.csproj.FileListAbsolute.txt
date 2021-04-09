@@ -1,0 +1,7 @@
+F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\bin\Debug\Utrom.exe.config
+F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\bin\Debug\Utrom.exe
+F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\bin\Debug\Utrom.pdb
+F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\obj\Debug\Utrom.csprojAssemblyReference.cache
+F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\obj\Debug\Utrom.csproj.CoreCompileInputs.cache
+F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\obj\Debug\Utrom.exe
+F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\obj\Debug\Utrom.pdb

@@ -11,21 +11,25 @@ namespace Utrom
     {
         static void Main(string[] args)
         {
-
-
+            Console.Write("Input = ");
+            //string inpPath = Console.ReadLine();
+            Console.Write("Output = ");
+            //string outPath = Console.ReadLine();
+            //Get(inpPath, outPath);
+            Get("1", "2");
 
             Console.ReadKey();
         }
 
-        static void Get(string path)
+        static void Get(string startPath, string copyPath)
         {
-            DirectoryInfo mainDirectory = new DirectoryInfo(path);
+            DirectoryInfo mainDirectory = new DirectoryInfo(startPath);
             DirectoryInfo[] directories = mainDirectory.GetDirectories();
-            ProcessFiles(mainDirectory.GetFiles());
+            ProcessFiles(mainDirectory.GetFiles(), copyPath);
 
         }
 
-        static void ProcessFiles(FileInfo[] files)
+        static void ProcessFiles(FileInfo[] files, string copyPath)
         {
             string prevFileName = "";
             string curFileName = "";
@@ -34,8 +38,11 @@ namespace Utrom
             foreach (FileInfo file in files)
             {
                 curFileName = file.Name.Remove(file.Name.LastIndexOf(' '));
-                curFileUUID = file.Name.Remove(0, file.Name.LastIndexOf(' ')).Remove(file.Name.LastIndexOf('.'));
-                LocaFileInfo curFile = new LocaFileInfo(curFileName, curFileUUID, GetWeight(file.FullName));
+                curFileUUID = file.Name.Remove(file.Name.LastIndexOf('.')).Remove(0, file.Name.LastIndexOf(' '));
+                LocaFileInfo curFile = new LocaFileInfo(curFileName, curFileUUID, 
+                    GetWeight(file.FullName), file.FullName, 
+                    file.Name.Remove(0, file.Name.LastIndexOf('.')));
+
                 if (prevFileName == curFileName)
                 {
                     locaFiles.Add(curFile);
@@ -43,14 +50,24 @@ namespace Utrom
                 else
                 {
                     locaFiles.OrderBy(c => c.Weight).ThenBy(c => c.UUID);
-                    //Write(locaFiles);
+                    CopyLocalFiles(locaFiles, copyPath);
                     locaFiles.Clear();
                     locaFiles.Add(curFile);
                     prevFileName = curFileName;
                 }
             }
-            locaFiles.OrderBy(c => c.Weight).ThenBy(c => c.UUID);
-            //Write(locaFiles);
+            locaFiles = locaFiles.OrderByDescending(c => c.Weight).ThenBy(c => c.UUID).ToList();
+            CopyLocalFiles(locaFiles, copyPath);
+        }
+
+        static void CopyLocalFiles(List<LocaFileInfo> locaFiles, string path)
+        {
+            int i = 0;
+            foreach (LocaFileInfo file in locaFiles)
+            {
+                File.Copy(file.FullName, path + (i == 0 ? $"\\{file.Name}{file.FileType}" : $"\\{file.Name} ({i}){file.FileType}"), true);
+                i++;
+            }
         }
 
         static int GetWeight(string path)
