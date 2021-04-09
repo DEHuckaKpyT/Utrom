@@ -11,9 +11,9 @@ namespace Utrom
     {
         static void Main(string[] args)
         {
-            Console.Write("Input = ");
+            Console.Write("InputDirectory = ");
             string inpPath = Console.ReadLine();
-            Console.Write("Output = ");
+            Console.Write("OutputDirectory = ");
             string outPath = Console.ReadLine();
             JustDoIt(inpPath, outPath);
 
