@@ -49,7 +49,7 @@ namespace Utrom
                 }
                 else
                 {
-                    locaFiles.OrderBy(c => c.Weight).ThenBy(c => c.UUID);
+                    locaFiles = locaFiles.OrderByDescending(c => c.Weight).ThenBy(c => c.UUID).ToList();
                     CopyLocalFiles(locaFiles, copyPath);
                     locaFiles.Clear();
                     locaFiles.Add(curFile);
