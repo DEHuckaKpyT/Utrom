@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace Utrom
             DirectoryInfo mainDirectory = new DirectoryInfo(startPath);
             ProcessDirectories(mainDirectory.GetDirectories(), copyPath);
             ProcessFiles(mainDirectory.GetFiles(), copyPath);
+            ZipFile.CreateFromDirectory(copyPath, copyPath + ".zip");
         }
         static void ProcessDirectories(DirectoryInfo[] directories, string copyPath)
         {

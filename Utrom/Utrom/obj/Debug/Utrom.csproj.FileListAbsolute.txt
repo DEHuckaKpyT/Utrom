@@ -5,3 +5,10 @@ F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\obj\Debug\Utrom.csprojAssemblyReferenc
 F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\obj\Debug\Utrom.csproj.CoreCompileInputs.cache
 F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\obj\Debug\Utrom.exe
 F:\МОЯ ПАПКА\C#\Utrom\Utrom\Utrom\obj\Debug\Utrom.pdb
+D:\VisualStudioProjects\Utrom\Utrom\Utrom\bin\Debug\Utrom.exe.config
+D:\VisualStudioProjects\Utrom\Utrom\Utrom\bin\Debug\Utrom.exe
+D:\VisualStudioProjects\Utrom\Utrom\Utrom\bin\Debug\Utrom.pdb
+D:\VisualStudioProjects\Utrom\Utrom\Utrom\obj\Debug\Utrom.csprojAssemblyReference.cache
+D:\VisualStudioProjects\Utrom\Utrom\Utrom\obj\Debug\Utrom.csproj.CoreCompileInputs.cache
+D:\VisualStudioProjects\Utrom\Utrom\Utrom\obj\Debug\Utrom.exe
+D:\VisualStudioProjects\Utrom\Utrom\Utrom\obj\Debug\Utrom.pdb
