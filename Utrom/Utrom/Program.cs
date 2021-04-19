@@ -33,11 +33,11 @@ namespace Utrom
             string curDirectoryName = "";
             string curDirectoryUUID = "";
             List<LocalDirectoryInfo> locaDirectories = new List<LocalDirectoryInfo>();
-            foreach (DirectoryInfo directory in directories)
+            foreach (var directory in directories.OrderBy(c => c.Name))
             {
                 curDirectoryName = directory.Name.Remove(directory.Name.LastIndexOf(' '));
                 curDirectoryUUID = directory.Name.Remove(0, directory.Name.LastIndexOf(' '));
-                LocalDirectoryInfo curDirectory = new LocalDirectoryInfo(curDirectoryName, curDirectoryUUID, 
+                LocalDirectoryInfo curDirectory = new LocalDirectoryInfo(curDirectoryName, curDirectoryUUID,
                     directory.GetFiles().Sum(c => GetWeight(c.FullName)), directory.FullName);
 
                 if (prevDirectoryName == curDirectoryName)
@@ -64,7 +64,7 @@ namespace Utrom
             string curFileUUID = "";
             string curFileType = "";
             List<LocaFileInfo> locaFiles = new List<LocaFileInfo>();
-            foreach (FileInfo file in files)
+            foreach (var file in files.OrderBy(c => c.Name))
             {
                 curFileName = file.Name.Remove(file.Name.LastIndexOf(' '));
                 curFileUUID = file.Name.Remove(file.Name.LastIndexOf('.')).Remove(0, file.Name.LastIndexOf(' '));
